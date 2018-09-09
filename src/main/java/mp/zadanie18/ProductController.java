@@ -22,34 +22,40 @@ public class ProductController {
         List<Product> lista = productRepositorium.getProducts();
         String result = "";
         double sum = 0;
-        for (Product product: lista) {
-            if(category.equals("wszystkie")){
-            result = result + product.toString() + "<br>";
-            double cena = product.getCena();
-            sum = sum + cena;
+        if(category.equals("wszystkie")){
+            for (Product product: lista) {
+                result = result + product.toString() + "<br>";
+                double cena = product.getCena();
+                sum = sum + cena;
+                }
         } else if(category.equals("spozywcze")){
-                String kategoria = product.getKategoria();
-                if(kategoria.equals("artykuły spożywcze")){
-                    result = result + product.toString() + "<br>";
-                    double cena = product.getCena();
-                    sum = sum + cena;
-                }
-            } else if(category.equals("domowe")){
-                String kategoria = product.getKategoria();
-                if(kategoria.equals("artykuły gosp. domowego")){
-                    result = result + product.toString() + "<br>";
-                    double cena = product.getCena();
-                    sum = sum + cena;
-                }
-            } else if(category.equals("inne")){
-                String kategoria = product.getKategoria();
-                if(kategoria.equals("inne")){
-                    result = result + product.toString() + "<br>";
-                    double cena = product.getCena();
-                    sum = sum + cena;
-                }
+            for (Product product: lista) {
+                    String kategoria = product.getKategoria();
+                    if(kategoria.equals("artykuły spożywcze")){
+                        result = result + product.toString() + "<br>";
+                        double cena = product.getCena();
+                        sum = sum + cena;
+                    }
             }
-    }
-    return result + "<br>" + "Suma cen wyżej pokazanych produktów to: " + sum;
+        } else if(category.equals("domowe")){
+            for (Product product: lista) {
+                    String kategoria = product.getKategoria();
+                    if(kategoria.equals("artykuły gosp. domowego")){
+                        result = result + product.toString() + "<br>";
+                        double cena = product.getCena();
+                        sum = sum + cena;
+                    }
+                }
+        } else if(category.equals("inne")){
+            for (Product product: lista) {
+                    String kategoria = product.getKategoria();
+                    if(kategoria.equals("inne")){
+                        result = result + product.toString() + "<br>";
+                        double cena = product.getCena();
+                        sum = sum + cena;
+                    }
+                }
+        }
+        return result + "<br>" + "Suma cen wyżej pokazanych produktów to: " + sum;
     }
 }
