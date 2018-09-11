@@ -1,9 +1,8 @@
 package mp.zadanie18;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProductAddController {
@@ -13,7 +12,7 @@ public class ProductAddController {
         this.productRepositorium = productRepositorium;
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public String addUser(@RequestParam (value = "nazwa", required = false)String nazwa,
                           @RequestParam (value = "cena", required = false)double cena,
                           @RequestParam (value = "kategoria", required = false)String kategoria){
